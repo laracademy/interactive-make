@@ -31,7 +31,7 @@ class MakeServiceProvider extends ServiceProvider
     private function registerModelGenerator()
     {
         $this->app->singleton('command.laracademy.make', function ($app) {
-            return $app['Laracademy\Commands\MakeCommand'];
+            return $app['Laracademy\Commands\Commands\MakeCommand'];
         });
 
         $this->commands('command.laracademy.make');
