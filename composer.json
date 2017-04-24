@@ -1,0 +1,18 @@
+{
+    "name": "laracademy/interactive-make",
+    "description": "Interactive make CLI replacement for Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael McMullen",
+            "email": "packages@laracademy.co"
+        }
+    ],
+    "require": {},
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+          "Laracademy\\Commands\\": "src/"
+        }
+    }
+}
