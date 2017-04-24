@@ -4,7 +4,7 @@
 
 To get started you must first install the package from composer.
 
-```
+```bash
 composer require laracademy/interactive-make
 ```
 
@@ -16,6 +16,6 @@ Laracademy\Commands\MakeServiceProvider::class,
 
 Run this command in your terminal then follow the prompts
 
-```
+```bash
 php artisan make
 ```
