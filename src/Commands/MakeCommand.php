@@ -242,12 +242,14 @@ class MakeCommand extends Command
         $tableName = $this->ask('Table Name (Example: users)');
 
         if($this->confirm('Are you creating a new table')) {
-            $this->options['--create'] = $this->options['name'];
+            $this->info('Setting create option for table '. $tableName);
 
+            $this->options['--create'] = $tableName;
             $this->options['name'] = 'create_'. $tableName .'_table';
         } else {
-            $this->options['--table'] = $this->options['name'];
+            $this->info('Setting table option for table '. $tableName);
 
+            $this->options['--table'] = $this->options['name'];
             $this->options['name'] = $this->ask('Migration Name (Example: alter_user_table_add_column_is_admin)', 'alter_'. $tableName .'_table_'. rand(0,100));
         }
 
