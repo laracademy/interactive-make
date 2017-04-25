@@ -14,22 +14,22 @@ class MakeCommand extends Command
     protected $signature = 'make';
 
     protected $availableCommands = [
-        'make:auth'         => 'auth',
-        'make:controller'   => 'controller',
-        'make:command'      => 'command',
-        'make:event'        => 'event',
-        'make:job'          => 'job',
-        'make:listener'     => 'listener',
-        'make:mail'         => 'mail',
-        'make:middleware'   => 'middleware',
-        'make:migration'    => 'migration',
-        'make:model'        => 'model',
-        'make:notification' => 'notification',
-        'make:policy'       => 'policy',
-        'make:provider'     => 'provider',
-        'make:request'      => 'request',
-        'make:seeder'       => 'seeder',
-        'make:test'         => 'test',
+        'auth'         => 'Auth',
+        'controller'   => 'Controller',
+        'command'      => 'Command',
+        'event'        => 'Event',
+        'job'          => 'Job',
+        'listener'     => 'Listener',
+        'mail'         => 'Mail',
+        'middleware'   => 'Middleware',
+        'migration'    => 'Migration',
+        'model'        => 'Model',
+        'notification' => 'Notification',
+        'policy'       => 'Policy',
+        'provider'     => 'Provider',
+        'request'      => 'Request',
+        'seeder'       => 'Seeder',
+        'test'         => 'Test',
     ];
 
     protected $options;
@@ -60,76 +60,77 @@ class MakeCommand extends Command
      */
     public function handle()
     {
+
         // Ask what command
-        $command = $this->choice('What command are you running?', $this->availableCommands->keys()->toArray());
+        $command = $this->choice('What command are you running?', $this->availableCommands->toArray());
 
         switch($command) {
-            case 'make:auth':
+            case 'auth':
                 $this->MakeAuth();
                 break;
 
-            case 'make:controller':
+            case 'controller':
                 $this->makeController();
                 break;
 
-            case 'make:command':
+            case 'command':
                 $this->makeCommand();
                 break;
 
-            case 'make:event':
+            case 'event':
                 $this->makeEvent();
                 break;
 
-            case 'make:job':
+            case 'job':
                 $this->makeJob();
                 break;
 
-            case 'make:listener':
+            case 'listener':
                 $this->makeListener();
                 break;
 
-            case 'make:mail':
+            case 'mail':
                 $this->makeMail();
                 break;
 
-            case 'make:middleware':
+            case 'middleware':
                 $this->makeMiddleware();
                 break;
 
-            case 'make:migration':
+            case 'migration':
                 $this->makeMigration();
                 break;
 
-            case 'make:model':
+            case 'model':
                 $this->makeModel();
                 break;
 
-            case 'make:notification':
+            case 'notification':
                 $this->makeNotification();
                 break;
 
-            case 'make:policy':
+            case 'policy':
                 $this->makePolicy();
                 break;
 
-            case 'make:provider':
+            case 'provider':
                 $this->makeProvider();
                 break;
 
-            case 'make:request':
+            case 'request':
                 $this->makeRequest();
                 break;
 
-            case 'make:seeder':
+            case 'seeder':
                 $this->makeSeeder();
                 break;
 
-            case 'make:test':
+            case 'test':
                 $this->makeTest();
                 break;
         }
 
-        $this->call($command, $this->options);
+        $this->call('make:'. $command, $this->options);
     }
 
     /**
