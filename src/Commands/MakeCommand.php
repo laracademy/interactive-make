@@ -153,7 +153,7 @@ class MakeCommand extends Command
      */
     public function makeController()
     {
-        $this->options['name'] = $this->ask('Controller Name (Example: MyController)');
+        $this->options['name'] = ucfirst($this->ask('Controller Name (Example: MyController)'));
 
         // Resourceful Controller
         if($this->confirm('Is this controller resourceful?')) {
