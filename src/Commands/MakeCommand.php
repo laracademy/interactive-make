@@ -66,7 +66,7 @@ class MakeCommand extends Command
 
         switch($command) {
             case 'auth':
-                $this->MakeAuth();
+                $this->makeAuth();
                 break;
 
             case 'controller':
