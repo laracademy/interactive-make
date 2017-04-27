@@ -1,5 +1,7 @@
 # Interactive Make for Laravel 5.4
 
+[![Latest Stable Version](https://poser.pugx.org/laracademy/interactive-make/v/stable)](https://packagist.org/packages/laracademy/interactive-make)  [![Total Downloads](https://poser.pugx.org/laracademy/interactive-make/downloads)](https://packagist.org/packages/laracademy/interactive-make) [![Latest Unstable Version](https://poser.pugx.org/laracademy/interactive-make/v/unstable)](https://packagist.org/packages/laracademy/interactive-make) [![License](https://poser.pugx.org/laracademy/interactive-make/license)](https://packagist.org/packages/laracademy/interactive-make)
+
 ## Getting Started
 
 To get started you must first install the package from composer.
