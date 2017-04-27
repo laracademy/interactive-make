@@ -19,3 +19,7 @@ Run this command in your terminal then follow the prompts
 ```bash
 php artisan make
 ```
+
+### Preview
+
+![](http://i.imgur.com/qR8AQ4U.gif)
