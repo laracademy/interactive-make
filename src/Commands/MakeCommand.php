@@ -64,71 +64,13 @@ class MakeCommand extends Command
         // Ask what command
         $command = $this->choice('What command are you running?', $this->availableCommands->toArray());
 
-        switch($command) {
-            case 'auth':
-                $this->makeAuth();
-                break;
-
-            case 'controller':
-                $this->makeController();
-                break;
-
-            case 'command':
-                $this->makeCommand();
-                break;
-
-            case 'event':
-                $this->makeEvent();
-                break;
-
-            case 'job':
-                $this->makeJob();
-                break;
-
-            case 'listener':
-                $this->makeListener();
-                break;
-
-            case 'mail':
-                $this->makeMail();
-                break;
-
-            case 'middleware':
-                $this->makeMiddleware();
-                break;
-
-            case 'migration':
-                $this->makeMigration();
-                break;
-
-            case 'model':
-                $this->makeModel();
-                break;
-
-            case 'notification':
-                $this->makeNotification();
-                break;
-
-            case 'policy':
-                $this->makePolicy();
-                break;
-
-            case 'provider':
-                $this->makeProvider();
-                break;
-
-            case 'request':
-                $this->makeRequest();
-                break;
-
-            case 'seeder':
-                $this->makeSeeder();
-                break;
-
-            case 'test':
-                $this->makeTest();
-                break;
+        if (!$this->availableCommands->has($command)) {
+            $this->info('The specified command does not exist.');
+            return;
         }
+
+        $method = 'make' . ucfirst($command);
+        call_user_func([$this, $method]);
 
         $this->call('make:'. $command, $this->options);
     }
