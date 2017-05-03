@@ -99,7 +99,7 @@ class MakeCommand extends Command
 
         // Resourceful Controller
         if($this->confirm('Is this controller resourceful?')) {
-            $this->options['--resource'] = '';
+            $this->options['-r'] = '--resource';
         }
 
         // Model Controller
