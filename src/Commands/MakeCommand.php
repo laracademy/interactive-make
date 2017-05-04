@@ -208,14 +208,14 @@ class MakeCommand extends Command
         $this->options['name'] = $this->ask('Model Name (Example: Posts)');
 
         if($this->confirm('Do you want to make a migration for this model?')) {
-            $this->options['--migration'] = '';
+            $this->options['-m'] = '--migration';
         }
 
         if($this->confirm('Do you want to make a controller for this model?')) {
-            $this->options['--controller'] = '';
+            $this->options['-c'] = '--controller';
 
             if($this->confirm('Is this controller a resourceful controller?')) {
-                $this->options['--resource'] = '';
+                $this->options['-r'] = '--resource';
             }
         }
     }
