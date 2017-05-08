@@ -4,19 +4,22 @@
 
 ## Getting Started
 
-To get started you must first install the package from composer.
+To get started you need to install the package with Composer:
 
 ```bash
 composer require laracademy/interactive-make
 ```
 
-Add the package service provider to your `config/app.php`
+Add the package service provider to your providers array in `config/app.php`:
 
 ```php
-Laracademy\Commands\MakeServiceProvider::class,
+'providers' => [
+    // ...
+    Laracademy\Commands\MakeServiceProvider::class,
+],
 ```
 
-Run this command in your terminal then follow the prompts
+Run this command in your terminal then follow the prompts:
 
 ```bash
 php artisan make
