@@ -19,7 +19,7 @@ Add the package service provider to your providers array in `config/app.php`:
 ],
 ```
 
-Run this command in your terminal then follow the prompts:
+To start using this package, run this command in your terminal and follow the onscreen prompts:
 
 ```bash
 php artisan make
