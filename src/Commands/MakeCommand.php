@@ -276,7 +276,7 @@ class MakeCommand extends Command
         $this->options['name'] = $this->ask('Test Name (Example: MyTest)');
 
         if($this->confirm('Is this test a Unit test?')) {
-            $this->options['--unit'] = '';
+            $this->options['--unit'] = '--unit';
         }
     }
 }
