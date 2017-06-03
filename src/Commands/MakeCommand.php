@@ -64,71 +64,13 @@ class MakeCommand extends Command
         // Ask what command
         $command = $this->choice('What command are you running?', $this->availableCommands->toArray());
 
-        switch($command) {
-            case 'auth':
-                $this->MakeAuth();
-                break;
-
-            case 'controller':
-                $this->makeController();
-                break;
-
-            case 'command':
-                $this->makeCommand();
-                break;
-
-            case 'event':
-                $this->makeEvent();
-                break;
-
-            case 'job':
-                $this->makeJob();
-                break;
-
-            case 'listener':
-                $this->makeListener();
-                break;
-
-            case 'mail':
-                $this->makeMail();
-                break;
-
-            case 'middleware':
-                $this->makeMiddleware();
-                break;
-
-            case 'migration':
-                $this->makeMigration();
-                break;
-
-            case 'model':
-                $this->makeModel();
-                break;
-
-            case 'notification':
-                $this->makeNotification();
-                break;
-
-            case 'policy':
-                $this->makePolicy();
-                break;
-
-            case 'provider':
-                $this->makeProvider();
-                break;
-
-            case 'request':
-                $this->makeRequest();
-                break;
-
-            case 'seeder':
-                $this->makeSeeder();
-                break;
-
-            case 'test':
-                $this->makeTest();
-                break;
+        if (!$this->availableCommands->has($command)) {
+            $this->info('The specified command does not exist.');
+            return;
         }
+
+        $method = 'make' . ucfirst($command);
+        call_user_func([$this, $method]);
 
         $this->call('make:'. $command, $this->options);
     }
@@ -153,11 +95,11 @@ class MakeCommand extends Command
      */
     public function makeController()
     {
-        $this->options['name'] = $this->ask('Controller Name (Example: MyController)');
+        $this->options['name'] = ucfirst($this->ask('Controller Name (Example: MyController)'));
 
         // Resourceful Controller
         if($this->confirm('Is this controller resourceful?')) {
-            $this->options['--resource'] = '';
+            $this->options['-r'] = '--resource';
         }
 
         // Model Controller
@@ -266,14 +208,14 @@ class MakeCommand extends Command
         $this->options['name'] = $this->ask('Model Name (Example: Posts)');
 
         if($this->confirm('Do you want to make a migration for this model?')) {
-            $this->options['--migration'] = '';
+            $this->options['-m'] = '--migration';
         }
 
         if($this->confirm('Do you want to make a controller for this model?')) {
-            $this->options['--controller'] = '';
+            $this->options['-c'] = '--controller';
 
             if($this->confirm('Is this controller a resourceful controller?')) {
-                $this->options['--resource'] = '';
+                $this->options['-r'] = '--resource';
             }
         }
     }
@@ -334,7 +276,7 @@ class MakeCommand extends Command
         $this->options['name'] = $this->ask('Test Name (Example: MyTest)');
 
         if($this->confirm('Is this test a Unit test?')) {
-            $this->options['--unit'] = '';
+            $this->options['--unit'] = '--unit';
         }
     }
 }
