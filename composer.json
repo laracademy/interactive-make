@@ -14,5 +14,12 @@
         "psr-4": {
           "Laracademy\\Commands\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laracademy\\Commands\\MakeServiceProvider"
+            ]
+        }
     }
 }
