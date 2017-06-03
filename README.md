@@ -10,7 +10,13 @@ To get started you need to install the package with Composer:
 composer require laracademy/interactive-make
 ```
 
-Add the package service provider to your providers array in `config/app.php`:
+### Laravel >= 5.5
+
+That's it! The package is auto-discovered on 5.5 and up!
+
+### Laravel <= 5.4
+
+Add the package service provider to your providers array in `config/app.php`
 
 ```php
 'providers' => [
