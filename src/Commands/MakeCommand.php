@@ -81,11 +81,11 @@ class MakeCommand extends Command
     public function makeAuth()
     {
         // Views Only
-        if($this->confirm('Only scaffold the authentication views?')) {
+        if ($this->confirm('Only scaffold the authentication views?')) {
             $this->options['--views'] = '';
         }
 
-        if($this->confirm('Overwrite existing views by default')) {
+        if ($this->confirm('Overwrite existing views by default')) {
             $this->options['--force'] = '';
         }
     }
@@ -98,12 +98,12 @@ class MakeCommand extends Command
         $this->options['name'] = ucfirst($this->ask('Controller Name (Example: MyController)'));
 
         // Resourceful Controller
-        if($this->confirm('Is this controller resourceful?')) {
+        if ($this->confirm('Is this controller resourceful?')) {
             $this->options['-r'] = '--resource';
         }
 
         // Model Controller
-        if($this->confirm('Would you like to use route model binding?')) {
+        if ($this->confirm('Would you like to use route model binding?')) {
             $this->options['--model'] = $this->ask('Please enter the name of the model');
         }
     }
@@ -128,6 +128,15 @@ class MakeCommand extends Command
     }
 
     /**
+     * all options for make:factory
+     */
+    public function makeFactory()
+    {
+        $this->options['--model'] = $this->ask('Please enter the name of the model to create a factory for');
+        $this->options['name'] = ucfirst($this->options['--model'])."Factory";
+    }
+
+    /**
      * all options for make:job
      */
     public function makeJob()
@@ -135,7 +144,7 @@ class MakeCommand extends Command
         $this->options['name'] = $this->ask('Job Name (Example: MyJob)');
 
         // Synchronous
-        if($this->confirm('Is this job synchronos?')) {
+        if ($this->confirm('Is this job synchronos?')) {
             $this->options['--sync'] = '';
         }
     }
@@ -147,11 +156,11 @@ class MakeCommand extends Command
     {
         $this->options['name'] = $this->ask('Listener Name (Example: MyListener)');
 
-        if($this->confirm('Do you know the event to listen for?')) {
+        if ($this->confirm('Do you know the event to listen for?')) {
             $this->options['--event'] = $this->ask('The event class being listened for', '');
         }
 
-        if($this->confirm('Will this event be queued')) {
+        if ($this->confirm('Will this event be queued')) {
             $this->options['--queued'] = '';
         }
     }
@@ -163,7 +172,7 @@ class MakeCommand extends Command
     {
         $this->options['name'] = $this->ask('Mail Name (Example: MyMail)');
 
-        if($this->confirm('Would you like to create a template for this mail command?')) {
+        if ($this->confirm('Would you like to create a template for this mail command?')) {
             $this->options['--markdown'] = strtolower($this->options['name']);
         }
     }
@@ -183,7 +192,7 @@ class MakeCommand extends Command
     {
         $tableName = $this->ask('Table Name (Example: users)');
 
-        if($this->confirm('Are you creating a new table')) {
+        if ($this->confirm('Are you creating a new table')) {
             $this->info('Setting create option for table '. $tableName);
 
             $this->options['--create'] = $tableName;
@@ -192,10 +201,10 @@ class MakeCommand extends Command
             $this->info('Setting table option for table '. $tableName);
 
             $this->options['--table'] = $this->options['name'];
-            $this->options['name'] = $this->ask('Migration Name (Example: alter_user_table_add_column_is_admin)', 'alter_'. $tableName .'_table_'. rand(0,100));
+            $this->options['name'] = $this->ask('Migration Name (Example: alter_user_table_add_column_is_admin)', 'alter_'. $tableName .'_table_'. rand(0, 100));
         }
 
-        if(! $this->confirm('Use default migration folder?', 'yes')) {
+        if (! $this->confirm('Use default migration folder?', 'yes')) {
             $this->options['path'] = $this->ask('Path for Migration');
         }
     }
@@ -207,14 +216,14 @@ class MakeCommand extends Command
     {
         $this->options['name'] = $this->ask('Model Name (Example: Posts)');
 
-        if($this->confirm('Do you want to make a migration for this model?')) {
+        if ($this->confirm('Do you want to make a migration for this model?')) {
             $this->options['-m'] = '--migration';
         }
 
-        if($this->confirm('Do you want to make a controller for this model?')) {
+        if ($this->confirm('Do you want to make a controller for this model?')) {
             $this->options['-c'] = '--controller';
 
-            if($this->confirm('Is this controller a resourceful controller?')) {
+            if ($this->confirm('Is this controller a resourceful controller?')) {
                 $this->options['-r'] = '--resource';
             }
         }
@@ -227,7 +236,7 @@ class MakeCommand extends Command
     {
         $this->options['name'] = $this->ask('Notification Name (Example: MyNotification)');
 
-        if($this->confirm('Would you like to create a template for this notification command?')) {
+        if ($this->confirm('Would you like to create a template for this notification command?')) {
             $this->options['--markdown'] = strtolower($this->options['name']);
         }
     }
@@ -239,7 +248,7 @@ class MakeCommand extends Command
     {
         $this->options['name'] = $this->ask('Policy Name (Example: MyPolicy)');
 
-        if($this->confirm('Will this policy apply to a model')) {
+        if ($this->confirm('Will this policy apply to a model')) {
             $this->options['--model'] = $this->ask('Model class name');
         }
     }
@@ -275,7 +284,7 @@ class MakeCommand extends Command
     {
         $this->options['name'] = $this->ask('Test Name (Example: MyTest)');
 
-        if($this->confirm('Is this test a Unit test?')) {
+        if ($this->confirm('Is this test a Unit test?')) {
             $this->options['--unit'] = '--unit';
         }
     }
