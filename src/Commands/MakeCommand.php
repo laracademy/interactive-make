@@ -29,6 +29,7 @@ class MakeCommand extends Command
         'policy' => 'Policy',
         'provider' => 'Provider',
         'request' => 'Request',
+        'rule' => 'Rule',
         'seeder' => 'Seeder',
         'test' => 'Test',
     ];
@@ -268,6 +269,14 @@ class MakeCommand extends Command
     public function makeRequest()
     {
         $this->options['name'] = $this->ask('Request Name (Example: MyRequest)');
+    }
+
+    /**
+     * all options for make:rule
+     */
+    public function makeRule()
+    {
+        $this->options['name'] = $this->ask('Request Name (Example: NewRule)');
     }
 
     /**
