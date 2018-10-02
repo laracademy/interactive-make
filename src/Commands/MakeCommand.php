@@ -14,22 +14,23 @@ class MakeCommand extends Command
     protected $signature = 'make';
 
     protected $availableCommands = [
-        'auth'         => 'Auth',
-        'controller'   => 'Controller',
-        'command'      => 'Command',
-        'event'        => 'Event',
-        'job'          => 'Job',
-        'listener'     => 'Listener',
-        'mail'         => 'Mail',
-        'middleware'   => 'Middleware',
-        'migration'    => 'Migration',
-        'model'        => 'Model',
+        'auth' => 'Auth',
+        'controller' => 'Controller',
+        'command' => 'Command',
+        'event' => 'Event',
+        'factory' => 'Factory',
+        'job' => 'Job',
+        'listener' => 'Listener',
+        'mail' => 'Mail',
+        'middleware' => 'Middleware',
+        'migration' => 'Migration',
+        'model' => 'Model',
         'notification' => 'Notification',
-        'policy'       => 'Policy',
-        'provider'     => 'Provider',
-        'request'      => 'Request',
-        'seeder'       => 'Seeder',
-        'test'         => 'Test',
+        'policy' => 'Policy',
+        'provider' => 'Provider',
+        'request' => 'Request',
+        'seeder' => 'Seeder',
+        'test' => 'Test',
     ];
 
     protected $options;
