@@ -18,6 +18,7 @@ class MakeCommand extends Command
         'controller' => 'Controller',
         'command' => 'Command',
         'event' => 'Event',
+        'exception' => 'Exception',
         'factory' => 'Factory',
         'job' => 'Job',
         'listener' => 'Listener',
@@ -128,6 +129,14 @@ class MakeCommand extends Command
     public function makeEvent()
     {
         $this->options['name'] = $this->ask('Event Name (Example: MyEvent)');
+    }
+
+    /**
+     * all options for make:exception
+     */
+    public function makeException()
+    {
+        $this->options['name'] = $this->ask('Exception Name (Example: MyException)');
     }
 
     /**
