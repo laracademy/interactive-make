@@ -27,6 +27,7 @@ class MakeCommand extends Command
         'migration' => 'Migration',
         'model' => 'Model',
         'notification' => 'Notification',
+        'observer' => 'Observer',
         'policy' => 'Policy',
         'provider' => 'Provider',
         'request' => 'Request',
@@ -251,6 +252,14 @@ class MakeCommand extends Command
         if ($this->confirm('Would you like to create a template for this notification command?')) {
             $this->options['--markdown'] = strtolower($this->options['name']);
         }
+    }
+
+    /**
+     * all options for make:observer
+     */
+    public function makeObserver()
+    {
+        $this->options['name'] = $this->ask('Observer Name (Example: MyObserver)');
     }
 
     /**
