@@ -16,6 +16,7 @@ class MakeCommand extends Command
     protected $availableCommands = [
         'auth' => 'Auth',
         'controller' => 'Controller',
+        'channel' => 'Channel',
         'command' => 'Command',
         'event' => 'Event',
         'exception' => 'Exception',
@@ -110,6 +111,14 @@ class MakeCommand extends Command
         if ($this->confirm('Would you like to use route model binding?')) {
             $this->options['--model'] = $this->ask('Please enter the name of the model');
         }
+    }
+
+    /**
+     * all options for make:channel
+     */
+    public function makeChannel()
+    {
+        $this->options['name'] = $this->ask('Channel Name (Example: MyChannel)');
     }
 
     /**
