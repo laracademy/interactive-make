@@ -242,7 +242,7 @@ class MakeCommand extends Command
             $this->info('Setting table option for table '. $tableName);
 
             $this->options['name'] = $this->ask('Migration Name (Example: alter_user_table_add_column_is_admin)', 'alter_'. $tableName .'_table_add');
-            $this->options['--table'] = $this->options['name'];
+            $this->options['--table'] = $tableName;
         }
 
         if (! $this->confirm('Use default migration folder?', 'yes')) {
