@@ -18,6 +18,7 @@ class MakeCommand extends Command
         'controller' => 'Controller',
         'channel' => 'Channel',
         'command' => 'Command',
+        'component' => 'Component',
         'event' => 'Event',
         'exception' => 'Exception',
         'factory' => 'Factory',
@@ -131,6 +132,24 @@ class MakeCommand extends Command
 
         // Command Name
         $this->options['--command'] = $this->ask('Please enter the command name', 'command:name');
+    }
+
+    /**
+     * all options for make:component
+     */
+    public function makeComponent()
+    {
+        $this->options['name'] = $this->ask('Component Name (Example: MyComponent)');
+
+        // Force
+        if ($this->confirm('Create the class even if the component already exists?')) {
+            $this->options['--force'] = '';
+        }
+
+        // Inline
+        if ($this->confirm('Create a component that renders an inline view?')) {
+            $this->options['--inline'] = '';
+        }
     }
 
     /**
